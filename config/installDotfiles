@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Files in ~/.config
+cp htop neofetch nvim ranger $HOME/.config/ -r
+# KDE Settings
+cd kde
+./install_kdeConfig.sh
+cd -
+# Files in ~/
+cp taskwarrior $HOME/.taskrc
+cp zshrc $HOME/.zshrc

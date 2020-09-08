@@ -1,0 +1,21 @@
+[DownloadDialog Settings]
+Height 1080=476
+Width 1920=700
+
+[KFileDialog Settings]
+detailViewIconSize=0
+
+[KPropertiesDialog]
+Height 1080=437
+Width 1920=404
+
+[MainWindow]
+Height 1080=700
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAAAABAAAAAK8AAAABAAAAAQAAAAIAAAACPwAAAABAAAAAgAAAAEAAAAWAG0AYQBpAG4AVABvAG8AbABCAGEAcgAAAAAA/////wAAAAAAAAAA
+ToolBarsMovable=Disabled
+Width 1920=1024
+
+[Open-with settings]
+CompletionMode=1
+History=konsole,kon

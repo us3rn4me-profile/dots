@@ -1,0 +1,15 @@
+[Desktop Entry]
+DefaultProfile=us3rn4me-profile.profile
+
+[Favorite Profiles]
+Favorites=us3rn4me-profile.profile
+
+[KonsoleWindow]
+ShowWindowTitleOnTitleBar=true
+UseSingleInstance=true
+
+[MainWindow]
+Height 1080=497
+State=AAAA/wAAAAD9AAAAAAAAAngAAAHAAAAABAAAAAQAAAAIAAAACPwAAAAA
+ToolBarsMovable=Disabled
+Width 1920=999

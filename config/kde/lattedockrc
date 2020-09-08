@@ -1,0 +1,26 @@
+[DownloadDialog Settings]
+Height 1080=481
+Width 1920=700
+
+[PlasmaThemeExtended]
+outlineWidth=1
+
+[ScreenConnectors]
+10=eDP-1
+11=HDMI-1
+
+[UniversalSettings]
+badges3DStyle=false
+canDisableBorders=false
+currentLayout=us3rn4me
+downloadWindowSize=800,550
+lastNonAssignedLayout=us3rn4me
+launchers=applications:telegramdesktop.desktop,applications:org.kde.konsole.desktop,applications:gimp.desktop,applications:google-chrome.desktop,applications:org.kde.dolphin.desktop,applications:systemsettings.desktop,applications:code-oss.desktop,file:///usr/share/applications/libreoffice-startcenter.desktop,file:///var/lib/flatpak/exports/share/applications/org.zealdocs.Zeal.desktop,file:///var/lib/flatpak/exports/share/applications/com.jgraph.drawio.desktop.desktop
+layoutsColumnWidths=108,74,60,0
+layoutsWindowSize=700,587
+memoryUsage=0
+metaPressAndHoldEnabled=true
+mouseSensitivity=2
+screenTrackerInterval=2500
+showInfoWindow=true
+version=2

@@ -1,0 +1,29 @@
+[Desktop Entry]
+DefaultProfile=us3rn4me-profile.profile
+
+[Favorite Profiles]
+Favorites=
+
+[General]
+Version=200
+ViewPropsTimestamp=2020,9,5,20,22,22
+
+[KFileDialog Settings]
+Recent Files[$e]=file:///usr/bin/sxiv,file:///usr/bin/sxiv
+Recent URLs[$e]=file:///usr/bin/,file:$HOME/Desktop/setupConfiguration/assets/
+detailViewIconSize=0
+
+[KPropertiesDialog]
+Height 1080=434
+Width 1920=316
+
+[MainWindow]
+Height 1080=1020
+MenuBar=Disabled
+State=AAAA/wAAAAD9AAAAAwAAAAAAAAC4AAAD1vwCAAAAAvsAAAAWAGYAbwBsAGQAZQByAHMARABvAGMAawAAAAAA/////wAAAAoBAAAD+wAAABQAcABsAGEAYwBlAHMARABvAGMAawEAAAAmAAAD1gAAAF0BAAADAAAAAQAAALgAAAEP/AIAAAAB+wAAABAAaQBuAGYAbwBEAG8AYwBrAAAAACYAAAEPAAAACgEAAAMAAAADAAADuAAAAL78AQAAAAH7AAAAGAB0AGUAcgBtAGkAbgBhAGwARABvAGMAawAAAAAAAAADuAAAAAoBAAADAAAC/wAAA9YAAAAEAAAABAAAAAgAAAAI/AAAAAEAAAACAAAAAQAAABYAbQBhAGkAbgBUAG8AbwBsAEIAYQByAQAAAAD/////AAAAAAAAAAA=
+ToolBarsMovable=Disabled
+Width 1920=952
+
+[Open-with settings]
+CompletionMode=1
+History=/usr/bin/sxiv
