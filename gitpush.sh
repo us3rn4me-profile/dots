@@ -1,4 +1,5 @@
 echo Adding files to git story
+# cp ~/.config/{konsolerc,kwinrc,kwalletrc,kded5rc,nvim,neofetch,htop}
 git add ./
 git status
 sleep 1

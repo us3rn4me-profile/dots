@@ -1,4 +1,9 @@
 # Дотфайлы
+
+<div align="center">
+<img src="assets/dots.png" alt="Desktop"/>
+</div>
+
 Дотфайлы - конфигурации для Linux-утилит и программ. Дотфайлами они называются потому что в Unix-подобных системах все файлы начинающиеся с `.` - скрыты (dotfiles).
 
 # Основная конфигурация
@@ -22,9 +27,12 @@
 <img src="assets/activeDesktop.png" alt="Desktop"/>
 </div>
 
+
 <div align="center">
 <img src="assets/neofetch.png" alt="neofetch info"/>
 </div>
+
+
 * Шрифты: *JetBrains Mono*, *Lato*
 
 * Иконки: McMojave-Circle-Blue
@@ -42,7 +50,9 @@
 ### Подготовка к установке dotfile'ов
 
 ```bash
-sudo pacman -Sy neofetch htop neovim latte-dock plasma ttf-lato ttf-jetbrains-mono konsole dolphin spectacle base-devel albert flatpak
+sudo pacman -Sy neofetch htop neovim latte-dock plasma \ 
+ttf-lato ttf-jetbrains-mono konsole dolphin spectacle  \
+base-devel albert flatpak
 ```
 
 ```bash
