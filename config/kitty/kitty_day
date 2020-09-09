@@ -1,0 +1,27 @@
+foreground   #dfe6e9
+background   #2d3436
+cursorColor  #dfe6e9
+
+color0       #2d3436
+color8       #636e72
+
+color1       #d63031
+color9       #ff7675
+
+color2       #00b894
+color10      #55efc4
+
+color3       #e17055
+color11      #fab1a0
+
+color4       #0984e3
+color12      #74b9ff
+
+color5       #6c5ce7
+color13      #a29bfe
+
+color6       #00cec9
+color14      #81ecec
+
+color7       #b2bec3
+color15      #dfe6e9

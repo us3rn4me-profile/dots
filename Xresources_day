@@ -1,0 +1,62 @@
+! special
+*.foreground:   #d2dae2
+*.background:   #1e272e
+*.cursorColor:  #d2dae2
+
+! black
+*.color0:       #1e272e
+*.color8:       #485460
+
+! red
+*.color1:       #ff3f34
+*.color9:       #ff5e57
+
+! green
+*.color2:       #05c46b
+*.color10:      #0be881
+
+! yellow
+*.color3:       #ffa801
+*.color11:      #ffc048
+
+! blue
+*.color4:       #3c40c6
+*.color12:      #575fcf
+
+! magenta
+*.color5:       #f53b57
+*.color13:      #ef5777
+
+! cyan
+*.color6:       #0fbcf9
+*.color14:      #4bcffa
+
+! white
+*.color7:       #808e9b
+*.color15:      #d2dae2
+
+
+! --- Xterm ---
+xterm*VT100.geometry:     80x25
+xterm*faceName:           JetBrains Mono:style=Regular:size=10
+xterm*dynamicColors:      true
+xterm*utf8:               2
+xterm*eightBitInput:      true
+xterm*saveLines:          512
+xterm*scrollKey:          true
+xterm*scrollTtyOutput:    false
+xterm*scrollBar:          true
+xterm*rightScrollBar:     true
+xterm*jumpScroll:         true
+xterm*multiScroll:        true
+xterm*toolBar:            false
+
+! --- Urxvt ---
+URxvt.font: xft:JetBrains Mono:size=10
+URxvt.letterSpace: -1
+URxvt.perl-ext-common: default,matcher,fullscreen
+URxvt*color12: rgb:5c/5c/ff
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.matcher.rend.0: Uline Bold fg5
+URxvt.keysym.F11: perl:fullscreen:switch

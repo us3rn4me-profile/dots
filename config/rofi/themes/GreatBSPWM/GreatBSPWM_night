@@ -1,0 +1,49 @@
+* {
+background-color: #282828;
+color: #fbf1c7;
+text-color: #fbf1c7;
+spacing: 0;
+width: 1020px;
+}
+
+inputbar {
+border: 0 0 2px 0;
+children: [prompt,entry];
+border-color: #b8bb26;
+}
+
+prompt {
+enabled: false;
+padding: 16px 24px;
+border: 0 1px 0 0;
+border-color: #b8bb26;
+}
+
+textbox {
+border: 0 0 1px 0;
+padding: 8px 16px;
+}
+
+entry {
+padding: 16px 24px;
+font-size: 24px;
+}
+
+listview {
+cycle: false;
+margin: 0 0 -1px 0;
+scrollbar: false;
+}
+
+element {
+// border: 0 0 1px 0;
+// border-color: #41554b;
+padding: 12px;
+color: #ebdbb2;
+}
+
+element selected {
+	background-color: #b8bb26;
+	color: #282828;
+}
+/* vim:ft=css

@@ -1,0 +1,174 @@
+### Tweaks ###
+# Set main key (Win)
+set $mod Mod4
+
+# Press MOD key and click on mouse to move your window
+floating_modifier $mod
+
+# Focus doesn't follow the mouse
+focus_follows_mouse no
+
+# Manage popups
+popup_during_fullscreen smart
+
+# Fonts
+font pango: JetBrains Mono 10
+
+# xwinwrap
+# exec xwinwrap -g 1920x1080 -ov -ni -s -nf -- gifview -w WID ~/.config/i3/gif.gif -a
+
+# Maximum width for floating windows
+floating_minimum_size 400 x 350
+floating_maximum_size 1800 x 900
+
+
+
+### Main settings ###
+# Workspace names (and variables)
+set $workspace1 "Terminal"
+set $workspace2 "Editor"
+set $workspace3 "Web"
+set $workspace4 "Other"
+
+## Rules ##
+assign [class="*|Dolphin|vifm|ranger|zathura|draw.io"] $workspace4
+assign [class="konsole|kitty|urxvt|gnome-terminal|alacritty"] $workspace1
+assign [class="Emacs|Gvim|vim|nvim|Code|marktext|Boostnote"] $workspace2
+assign [class="Google-chrome|firefox|TelegramDesktop|Chromium"] $workspace3
+
+# Make all windows floating
+# (1920 - 10)/2 and (1080 - 10)/2
+for_window [class=".*"] floating enable
+for_window [class=".*"] resize set 955 535
+for_window [class=".*"] focus
+# for_window [class="urxvt|kitty|konsole"] workspace_layout stacking
+
+# Layout Preferences
+
+
+## Keyboard Settings ##
+# Apps
+bindsym $mod+Return exec kitty
+bindsym $mod+Mod1+v exec "kitty sh -c 'ranger'"
+bindsym $mod+Mod1+g exec google-chrome-stable
+bindsym $mod+Mod1+c exec code
+bindsym Print exec spectacle
+bindsym $mod+Print scrot -s --quality 10 -e 'mv $f ~/Pictures/Screenshot_`date +%m-%d-%y_%R:%S`.png' && notify-send --urgency normal "Scrot" "Screenshot of a window have been captured"
+
+# Select window, open new app
+bindsym Mod1+Tab exec "rofi -modi window,drun,ssh,combi -show-icons -sort -theme ~/.config/rofi/GreatI3.rasi -show combi"
+
+# Rofi drun mode
+bindsym $mod+d exec "rofi -modi drun -show drun -show-icons -sort -theme ~/.config/rofi/GreatI3.rasi"
+
+# System / Volume
+bindsym XF86AudioMute "exec amixer -D pulse sset Master toggle && notify-send \"Volume\" \"Sound is (un)muted\" --urgency low"
+bindsym XF86AudioRaiseVolume "exec amixer -D pulse sset Master 5%+ && notify-send \"Volume\" \"Volume added +5%\n    Volume level is now $(amixer -D pulse get Master | awk -F 'Left:|[][]' 'BEGIN {RS=\"\"}{ print $3 }')\" --urgency low"
+bindsym XF86AudioLowerVolume "exec amixer -D pulse sset Master 5%- && notify-send \"Volume\" \"Volume added -5%\n    Volume level is now $(amixer -D pulse get Master | awk -F 'Left:|[][]' 'BEGIN {RS=\"\"}{ print $3 }')\" --urgency low"
+
+
+# System / Brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5
+
+# Moving from one window to another
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Choose one of your workspaces
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+
+# Move window to the workspace
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+
+## Floating manipulation ##
+# Make window floating
+bindsym $mod+f floating toggle
+# Change focus
+bindsym $mod+Shift+f focus mode_toggle
+
+# Move windows
+bindsym $mod+Shift+h move left 20px
+bindsym $mod+Shift+j move down 20px
+bindsym $mod+Shift+k move up 20px
+bindsym $mod+Shift+l move right 20px
+
+# Resizing Windows
+bindsym $mod+Ctrl+l resize shrink width 10 px or 10 ppt
+bindsym $mod+Ctrl+k resize grow height 10 px or 10 ppt
+bindsym $mod+Ctrl+j resize shrink height 10 px or 10 ppt
+bindsym $mod+Ctrl+h resize grow width 10 px or 10 ppt
+
+# Make window fullscreen
+bindcode 95 fullscreen toggle
+
+# Reload Configuration
+bindsym $mod+p reload
+
+# Kill a window
+bindsym $mod+x exec xdotool getwindowfocus windowkill
+
+# Floating vector
+bindsym $mod+v split t
+
+# Make all windows tiling in the workspace
+bindsym $mod+i [workspace=$workspace1] floating toggle
+
+
+
+### Autostart ###
+# Lockscreen after 10min delay
+exec --no-startup-id "$HOME/.config/i3/lockscreen"
+# Convert background gif to jpg
+# exec --no-startup-id convert -verbose $HOME/.config/i3/{gif.gif,gif.jpg}
+# Generate Colorscheme
+# exec_always --no-startup-id wal -i $HOME/.config/i3/gif-0.jpg
+# Compositor
+exec_always --no-startup-id "killall -q picom; picom --config $HOME/.config/picom.conf"
+# Language
+exec --no-startup-id setxkbmap -model pc105 -layout us,ru -option grp:win_space_toggle
+# Automount USB
+exec --no-startup-id udiskie
+# Red Light in night time
+exec --no-startup-id redshift-gtk
+# Dunst
+exec --no-startup-id dunst
+# Kitty
+exec kitty
+# Dropbox
+exec --no-startup-id dropbox &
+# Polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+# Cursor
+exec_always --no-startup-id xsetroot -cursor_name left_ptr
+
+
+
+### i3-gaps ###
+# Borders for windows
+for_window [class=".*"] border pixel 5
+
+# Gaps for i3bar
+for_window [class="i3bar"] gaps outer current set 10
+
+# Gaps
+gaps inner 10
+gaps outer 4
+
+
+### Topbar and color theme ###
+# Color theme of borders
+client.focused              #292f36 #292f36 #ffffff #ffc857 #292f36
+client.focused_inactive     #292f36 #292f36 #ffffff #292f36 #292f36
+client.unfocused            #292f36 #292f36 #ffffff #292f36 #292f36
+client.urgent               #292f36 #292f36 #ffffff #292f36 #292f36
+client.placeholder          #292f36 #292f36 #ffffff #292f36 #292f36
+client.background           #292f36

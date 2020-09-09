@@ -1,0 +1,38 @@
+set font "Lato 12"
+
+set completion-bg "#1e272e"
+set completion-fg "#d2dae2"
+set completion-group-bg "#1e272e"
+set completion-group-fg "#05c46b"
+set completion-highlight-bg "#d2dae2"
+set completion-highlight-fg "#1e272e"
+set default-bg "#1e272e"
+set default-fg "#d2dae2"
+set inputbar-bg "#1e272e"
+set inputbar-fg "#d2dae2"
+set notification-bg "#1e272e"
+set notification-fg "#d2dae2"
+set notification-error-bg "#ff3f34"
+set notification-error-fg "#d2dae2"
+set notification-warning-bg "#ff3f34"
+set notification-warning-fg "#d2dae2"
+set statusbar-bg "#1e272e"
+set statusbar-fg "#d2dae2"
+set index-bg "#1e272e"
+set index-fg "#d2dae2"
+set index-active-bg "#d2dae2"
+set index-active-fg "#1e272e"
+set render-loading-bg "#1e272e"
+set render-loading-fg "#d2dae2"
+
+set smooth-scroll true
+set window-title-home-tilde true
+set statusbar-basename true
+set selection-clipboard clipboard
+
+set adjust-open "best-fit"
+set pages-per-row 1
+set scroll-page-aware "true"
+set scroll-step 100
+set scroll-full-overlap 0.01
+set smooth-scroll "true"

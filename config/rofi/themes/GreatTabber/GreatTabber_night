@@ -1,0 +1,58 @@
+configuration {
+	show-icons:      true;
+}
+
+* {
+	background-color: #282828; // Color0
+	color: #fbf1c7; // Color15
+	font: "Lato 12";
+	line-margin: 2;
+	line-padding: 2;
+	hide-scrollbar: "true";
+	margin: 0;
+	padding: 5;
+}
+
+window {
+	anchor: west;
+	location: west;
+	width: 400px;
+	height: 100%;
+	orientation: horizontal;
+}
+
+prompt {
+	enabled: false;
+}
+
+inputbar {
+	padding: 5px;
+	spacing: 10px;
+}
+
+listview {
+	cycle:   true;
+	spacing: 7px;
+}
+
+entry {
+	text-color:     #fbf1c7; // Color15
+	vertical-align: 1;
+	padding:        5px;
+}
+
+
+element {
+	padding: 7px;
+}
+
+element normal {
+	background-color: #282828; //Color0
+	text-color:       #ebdbb2; //Color7
+}
+
+element selected {
+	background-color: #d3869b; //Color2
+	text-color:       #282828; //Color0
+}
+/* vim:ft=css

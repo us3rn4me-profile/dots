@@ -1,0 +1,213 @@
+# To find something search for '#!'
+
+# _______  __   __  _______  _______  _______  __   __
+#|       ||  | |  ||       ||       ||       ||  |_|  |
+#|  _____||  |_|  ||  _____||_     _||    ___||       |
+#| |_____ |       || |_____   |   |  |   |___ |       |
+#|_____  ||_     _||_____  |  |   |  |    ___||       |
+# _____| |  |   |   _____| |  |   |  |   |___ | ||_|| |
+#|_______|  |___|  |_______|  |___|  |_______||_|   |_|
+#!
+
+# brightness keybindings
+XF86MonBrightness{Up,Down}
+	xbacklight {-inc,-dec} 5
+
+# media keys
+XF86Audio{Next,Prev,Play,Stop}
+	mpc {next,prev,toggle,stop}
+
+# volume
+XF86AudioRaiseVolume
+	$HOME/.config/sxhkd/scripts/volume.sh raise
+XF86AudioLowerVolume
+	$HOME/.config/sxhkd/scripts/volume.sh lower
+XF86AudioMute
+	$HOME/.config/sxhkd/scripts/volume.sh mute
+
+# Screenshot of a window
+super + Print
+	file=$(date +%H:%M:%S_%d-%m-%y); scrot -u $file'.png' -e 'mv $f ~/Pictures/' && notify-send "Screenshot" "Window screenshot was captured"; convert "$HOME/Pictures/${file}.png" \( +clone -background black -shadow 80x20+0+15 \) +swap -background white -layers merge +repage "$HOME/Pictures/${file}.png"; xclip -selection clipboard -t image/png -i "$HOME/Pictures/${file}.png"
+
+# Screenshot of a monitor
+Print
+	file=$(date +%H:%M:%S_%d-%m-%y); scrot $file'.png' -e 'mv $f ~/Pictures/' && notify-send "Screenshot" "Window screenshot was captured" | xclip -selection clipboard -t image/png -i "$HOME/Pictures/${file}.png"
+
+
+# Lock PC
+super + o
+	dm-tool lock
+
+super + c
+	$HOME/.config/sxhkd/scripts/setFlag.sh
+
+# _______  _______  _______  _______
+#|   _   ||       ||       ||       |
+#|  |_|  ||    _  ||    _  ||  _____|
+#|       ||   |_| ||   |_| || |_____
+#|       ||    ___||    ___||_____  |
+#|   _   ||   |    |   |     _____| |
+#|__| |__||___|    |___|    |_______|
+#!
+
+# terminal emulator
+super + Return
+	kitty
+
+# urxvt
+super + shift + Return
+	urxvt
+
+# program launcher
+super + d
+	rofi -modi drun -show drun -matching fuzzy -show-icons -markup -font "Lato 16" -sort -lines 10 -theme $HOME/.config/rofi/GreatBSPWM.rasi
+
+# window changer
+alt + Tab
+	rofi -modi window ssh drun -show window -show-icons -matching fuzzy -markup -sort -theme $HOME/.config/rofi/GreatTabber.rasi -kb-accept-entry '!Alt-Tab' -kb-row-down Alt-Tab
+
+# Google Chrome
+super + alt + g
+	google-chrome-stable
+
+# Ranger
+super + alt + v
+	nautilus
+
+# Code
+super + alt + c
+	code
+
+# FFMPEG recording
+ctrl + Print
+	$HOME/.config/sxhkd/scripts/ffmpegVideorecorder.sh
+
+ctrl + alt + Print
+	killall ffmpeg && notify-send "Video" "Record has been stoped"
+
+# ______    _______  _______  ___   _______  ___   __    _  _______
+#|    _ |  |       ||       ||   | |       ||   | |  |  | ||       |
+#|   | ||  |    ___||  _____||   | |____   ||   | |   |_| ||    ___|
+#|   |_||_ |   |___ | |_____ |   |  ____|  ||   | |       ||   | __
+#|    __  ||    ___||_____  ||   | | ______||   | |  _    ||   ||  |
+#|   |  | ||   |___  _____| ||   | | |_____ |   | | | |   ||   |_| |
+#|___|  |_||_______||_______||___| |_______||___| |_|  |__||_______|
+#!
+
+# expand a window by moving one of its side outward
+super + ctrl + {h,j,k,l}
+	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a window by moving one of its side inward
+super + ctrl + {o,i,u,y}
+	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# Make all windows equal size
+super + ctrl + equal
+	bspc node @/ -B
+
+# __   __  _______  __   __  ___   __    _  _______
+#|  |_|  ||       ||  | |  ||   | |  |  | ||       |
+#|       ||   _   ||  |_|  ||   | |   |_| ||    ___|
+#|       ||  | |  ||       ||   | |       ||   | __
+#|       ||  |_|  ||       ||   | |  _    ||   ||  |
+#| ||_|| ||       | |     | |   | | | |   ||   |_| |
+#|_|   |_||_______|  |___|  |___| |_|  |__||_______|
+#!
+
+# focus the node in the given direction
+# Tips: Index from 1 in bash
+super + {h,j,k,l}
+	{move=(west prev),move=(south 0),move=(north 0),move=(east next)};[ -z $(bspc query -N -n .tiled) ] && bspc node -f ${move[2]}.window.local || bspc node -f ${move[1]}
+# Old variant
+# {move=(west prev),move=south,move=north,move=(east, next)};[ -z $(bspc query -N -n .tiled) ] && bspc node -f {prev,next}.window.local || bspc node -f {west,south,north,east}
+
+# focus nodes periodical
+super + {comma,period}
+	bspc node -f {next,prev}.window.local
+
+# focus the next/previous desktop in the current monitor
+super + bracket{left,right}
+	bspc desktop -f {prev,next}.local
+
+# focus the last node/desktop
+super + Tab
+	bspc node -f last
+
+# move a window
+super + shift + {h,j,k,l}
+		{dir=west  x=-20 y=0,dir=south x=0 y=20,dir=north x=0 y=-20,dir=east x=20 y=0}; \
+		bspc node --move "$x" "$y" || bspc node --swap $dir
+
+# _     _  _______  ______    ___   _  _______  _______  _______  _______  _______  _______
+#| | _ | ||       ||    _ |  |   | | ||       ||       ||   _   ||       ||       ||       |
+#| || || ||   _   ||   | ||  |   |_| ||  _____||    _  ||  |_|  ||       ||    ___||  _____|
+#|       ||  | |  ||   |_||_ |      _|| |_____ |   |_| ||       ||       ||   |___ | |_____
+#|       ||  |_|  ||    __  ||     |_ |_____  ||    ___||       ||      _||    ___||_____  |
+#|   _   ||       ||   |  | ||    _  | _____| ||   |    |   _   ||     |_ |   |___  _____| |
+#|__| |__||_______||___|  |_||___| |_||_______||___|    |__| |__||_______||_______||_______|
+#!
+
+# focus or send to the given desktop
+super + {_,shift + }{1-4}
+	bspc {desktop -f,node -d} '^{1-4}'
+
+# ___      _______  __   __  _______  __   __  _______
+#|   |    |   _   ||  | |  ||       ||  | |  ||       |
+#|   |    |  |_|  ||  |_|  ||   _   ||  | |  ||_     _|
+#|   |    |       ||       ||  | |  ||  |_|  |  |   |
+#|   |___ |       ||_     _||  |_|  ||       |  |   |
+#|       ||   _   |  |   |  |       ||       |  |   |
+#|_______||__| |__|  |___|  |_______||_______|  |___|
+#!
+
+# Switch between tiled and floating
+super + f
+	if [ -z "$(bspc query -N -n focused.floating)" ]; then bspc node focused -t floating; else bspc node focused -t tiled; fi
+
+# Switch between tiled and fullscreen
+super + F11
+	if [ $(bspc query -N -n focused.fullscreen) ]; then bspc node -t floating; else bspc node -t fullscreen; fi
+
+# preselect the direction
+super + alt + {h,j,k,l}
+	bspc node -p {west,south,north,east}
+
+# cancel the preselection for the focused desktop
+super + alt + semicolon
+	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+# Make all windows floating or tiled
+super + i
+	$HOME/.config/sxhkd/scripts/changeLayoutAllWindows.sh
+
+# Rotate node and it's sub-nodes
+super + alt + {comma,period}
+	bspc node @parent -R {-90,90}
+
+# _     _  __   __
+#| | _ | ||  |_|  |
+#| || || ||       |
+#|       ||       |
+#|       ||       |
+#|   _   || ||_|| |
+#|__| |__||_|   |_|
+#!
+
+# quit/restart bspwm
+super + q
+	bspc quit
+
+super + p
+	bspc wm -r
+
+# close and kill
+super + x
+	bspc node -c
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + s
+	xrandr --output eDP-1 --auto

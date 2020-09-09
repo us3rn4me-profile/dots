@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+# Themes are switching by a time
+# From 8PM to 7AM - Night theme
+# From 7AM to 8PM - Day theme
+
+kittyDIR="$HOME/.config/kitty"
+rofiDIR="$HOME/.config/rofi"
+
+
+#! Night theme
+if [[ $(date +%H) -lt 7 ]] || [[ $(date +%H) -gt 20 ]]; then
+echo Night
+	#? Xresources
+	ln -sf $HOME/.Xresources_night $HOME/.Xresources
+	xrdb -load $HOME/.Xresources
+	#? Kitty
+	cat $kittyDIR/kitty_basis > $kittyDIR/kitty.conf && cat $kittyDIR/kitty_night >> $kittyDIR/kitty.conf
+	#? Rofi (Start app)
+	ln -sf $rofiDIR/{themes/GreatBSPWM/GreatBSPWM_night,GreatBSPWM.rasi}
+	#? Rofi (Window changer)
+	ln -sf $rofiDIR/{themes/GreatTabber/GreatTabber_night,GreatTabber.rasi}
+	#? Rofi (Set Flag)
+	ln -sf $rofiDIR/{themes/GreatSetFlag/GreatSetFlag_night,GreatSetFlag.rasi}
+	#? GTK
+
+
+elif [[ $(date +%H) -lt 12 ]] && [[ $(date +%H) -gt 6 ]]; then
+#! Morning theme
+echo Morning
+	#? Xresources
+	ln -sf $HOME/.Xresources_morning $HOME/.Xresources
+	xrdb -load $HOME/.Xresources
+	#? Kitty
+	cat $kittyDIR/kitty_basis > $kittyDIR/kitty.conf && cat $kittyDIR/kitty_morning >> $kittyDIR/kitty.conf
+	#? Rofi (Start app)
+	ln -sf $rofiDIR/{themes/GreatBSPWM/GreatBSPWM_morning,GreatBSPWM.rasi}
+	#? Rofi (Window changer)
+	ln -sf $rofiDIR/{themes/GreatTabber/GreatTabber_morning,GreatTabber.rasi}
+	#? Rofi (Set Flag)
+	ln -sf $rofiDIR/{themes/GreatSetFlag/GreatSetFlag_morning,GreatSetFlag.rasi}
+else
+#! Day theme
+echo Day
+	ln -sf $HOME/.Xresources_day $HOME/.Xresources
+	xrdb -load $HOME/.Xresources
+	#? Kitty
+	cat $kittyDIR/kitty_basis > $kittyDIR/kitty.conf && cat $kittyDIR/kitty_day >> $kittyDIR/kitty.conf
+	#? Rofi (Start app)
+	ln -sf $rofiDIR/{themes/GreatBSPWM/GreatBSPWM_day,GreatBSPWM.rasi}
+	#? Rofi (Window changer)
+	ln -sf $rofiDIR/{themes/GreatTabber/GreatTabber_day,GreatTabber.rasi}
+	#? Rofi (Set Flag)
+	ln -sf $rofiDIR/{themes/GreatSetFlag/GreatSetFlag_day,GreatSetFlag.rasi}
+fi

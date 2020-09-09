@@ -1,0 +1,27 @@
+foreground   #d2dae2
+background   #1e272e
+cursorColor  #d2dae2
+
+color0       #1e272e
+color8       #485460
+
+color1       #ff3f34
+color9       #ff5e57
+
+color2       #05c46b
+color10      #0be881
+
+color3       #ffa801
+color11      #ffc048
+
+color4       #3c40c6
+color12      #575fcf
+
+color5       #f53b57
+color13      #ef5777
+
+color6       #0fbcf9
+color14      #4bcffa
+
+color7       #808e9b
+color15      #d2dae2
